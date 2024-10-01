@@ -7,13 +7,16 @@ module.exports = defineConfig({
     testIsolation: false,
     reporter: 'mochawesome',
     reporterOptions: {
-      reportDir: 'cypress/reports',
-      overwrite: false,
-      html: true,
-      json: true,
+      reportDir: 'cypress/reports',         // Diretório onde o relatório será salvo
+      overwrite: false,                     // Não sobrescreve os relatórios existentes
+      html: true,                           // Gera o relatório em HTML
+      json: true,                           // Gera o relatório em JSON
+      charts: true,                         // Incluir gráficos no relatório
+      reportPageTitle: 'Relatório de Testes', // Título da página do relatório
+      embeddedScreenshots: true,            // Incluir screenshots embutidos no relatório
     },
     setupNodeEvents(on, config) {
-      
+      // Configurações adicionais de eventos
     },
   },
 });

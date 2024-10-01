@@ -18,8 +18,29 @@ describe('Teste de API - Marvel Creators', () => {
     }).then((response) => {
       
       expect(response.status).to.eq(200);
-      
-      
+
+      // Verifica os atributos da resposta
+      const { code, status, data, etag, copyright, attributionText, attributionHTML } = response.body;
+
+      expect(code).to.be.a('number');         
+      expect(code).to.eq(200);                
+
+      expect(status).to.be.a('string');       
+      expect(status).to.eq('Ok');             
+
+      expect(data).to.be.an('object');        
+
+      expect(etag).to.be.a('string');         
+      expect(etag).to.not.be.empty;           
+
+      expect(copyright).to.be.a('string');    
+      expect(copyright).to.not.be.empty;      
+
+      expect(attributionText).to.be.a('string'); 
+      expect(attributionText).to.not.be.empty;   
+
+      expect(attributionHTML).to.be.a('string'); 
+      expect(attributionHTML).to.not.be.empty;   
     });
   });
 });
@@ -36,20 +57,17 @@ describe('Teste de API - Marvel Comics', () => {
         cy.request({
             method: 'GET',
             url: `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`,
-            failOnStatusCode: false // Permite capturar respostas com erro para verificação
+            failOnStatusCode: false 
         }).then((response) => {
-            // Log para depuração
-            cy.log(`Status: ${response.status}`);
-            cy.log(`Body: ${JSON.stringify(response.body)}`);
-
-            // Verifica se o status da resposta é 200
+          
+          
             expect(response.status).to.eq(200);
             
             // Verifica se o corpo da resposta contém informações dos quadrinhos
             expect(response.body).to.have.property('data');
             expect(response.body.data).to.have.property('results');
-            expect(response.body.data.results).to.be.an('array'); // Verifica se é um array
-            expect(response.body.data.results.length).to.be.greaterThan(0); // Verifica se há pelo menos um quadrinho
+            expect(response.body.data.results).to.be.an('array');
+            expect(response.body.data.results.length).to.be.greaterThan(0); 
         });
     });
 });

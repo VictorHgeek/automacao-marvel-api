@@ -1,0 +1,147 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-01T14:41:53.465Z",
+    "end": "2024-10-01T14:41:56.690Z",
+    "duration": 3225,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7ac97029-1365-4e62-abb8-a016dd58cf71",
+      "title": "",
+      "fullFile": "cypress\\integration\\automacao-api.cy.js",
+      "file": "cypress\\integration\\automacao-api.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2bf999d9-5d3e-4441-a893-b99115445f04",
+          "title": "Teste de API - Marvel Creators",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve retornar os detalhes do criador com sucesso",
+              "fullTitle": "Teste de API - Marvel Creators Deve retornar os detalhes do criador com sucesso",
+              "timedOut": null,
+              "duration": 1043,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ts = new Date().getTime();\nconst hash = CryptoJS.MD5(ts + privateKey + publicKey).toString();\ncy.request({\n  method: 'GET',\n  url: `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // Verifica os atributos da resposta\n  const {\n    code,\n    status,\n    data,\n    etag,\n    copyright,\n    attributionText,\n    attributionHTML\n  } = response.body;\n  expect(code).to.be.a('number');\n  expect(code).to.eq(200);\n  expect(status).to.be.a('string');\n  expect(status).to.eq('Ok');\n  expect(data).to.be.an('object');\n  expect(etag).to.be.a('string');\n  expect(etag).to.not.be.empty;\n  expect(copyright).to.be.a('string');\n  expect(copyright).to.not.be.empty;\n  expect(attributionText).to.be.a('string');\n  expect(attributionText).to.not.be.empty;\n  expect(attributionHTML).to.be.a('string');\n  expect(attributionHTML).to.not.be.empty;\n});",
+              "err": {},
+              "uuid": "e6ae1d7d-ba12-4ea9-a90b-0bee33cf5087",
+              "parentUUID": "2bf999d9-5d3e-4441-a893-b99115445f04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e6ae1d7d-ba12-4ea9-a90b-0bee33cf5087"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1043,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "ea5f176a-f275-4143-822d-8b1ffad53ec3",
+          "title": "Teste de API - Marvel Comics",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve retornar os quadrinhos do criador com sucesso",
+              "fullTitle": "Teste de API - Marvel Comics Deve retornar os quadrinhos do criador com sucesso",
+              "timedOut": null,
+              "duration": 2130,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ts = new Date().getTime(); // Cria um timestamp atual\nconst hash = CryptoJS.MD5(ts + privateKey + publicKey).toString(); // Gera o hash MD5\ncy.request({\n  method: 'GET',\n  url: `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // Verifica se o corpo da resposta contém informações dos quadrinhos\n  expect(response.body).to.have.property('data');\n  expect(response.body.data).to.have.property('results');\n  expect(response.body.data.results).to.be.an('array');\n  expect(response.body.data.results.length).to.be.greaterThan(0);\n});",
+              "err": {},
+              "uuid": "9ff44947-ca45-46b5-a07c-71b56d73a1e4",
+              "parentUUID": "ea5f176a-f275-4143-822d-8b1ffad53ec3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9ff44947-ca45-46b5-a07c-71b56d73a1e4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2130,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "Relatório de Testes",
+        "embeddedScreenshots": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
